@@ -286,6 +286,7 @@ public class CardGameManager : MonoBehaviour
     {
         gameStart = false;
         panel.SetActive(false);
+         info.SetActive(true);
     }
 
     public void GiveUp()
