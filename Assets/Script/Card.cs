@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Card : MonoBehaviour
 {
-      public int cardID;
+    public int cardID;
     public bool isFlipped = false;
     public Sprite cardFace;
     public Sprite cardBack;
@@ -24,21 +23,22 @@ public class Card : MonoBehaviour
         if (!isFlipped)
         {
             FlipCard();
-           
+            GameManager.Instance.AddFlippedCard(this);
         }
     }
 
     public void FlipCard()
     {
         isFlipped = true;
-        animator.Play("FlipToFront");
+        animator.SetTrigger("FlipToFront");
         cardImage.sprite = cardFace;
+      
     }
 
     public void HideCard()
     {
         isFlipped = false;
-        animator.Play("FlipToBack");
+        animator.SetTrigger("FlipToBack");
         cardImage.sprite = cardBack;
     }
 
